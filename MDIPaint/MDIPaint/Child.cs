@@ -47,6 +47,11 @@ namespace MDIPaint
             this.image = image;
         }
 
+        private void Child_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
+
         public void SetupVar()
         {
             thick = 1;

@@ -88,6 +88,16 @@ namespace MDIPaint
             saveFileDialog.Filter = "Image files (*.jpg; *.jpeg) | *.jpg; *.jpeg; |Bitmap Image files (*.bmp; *gif) | *.bmp; *gif; |Lossless Image file (*.png) | *.png;";
         }
 
+        private void Parent_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            child = (Child)(this.ActiveMdiChild);
+            if (child != null)
+                child.Dispose();
+            this.Dispose();
+            this.Close();
+            Application.Exit();
+        }
+
         private void 새로만들기ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             child = new Child();
@@ -132,7 +142,12 @@ namespace MDIPaint
 
         private void 끝내기XToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            child = (Child)(this.ActiveMdiChild);
+            if (child != null)
+                child.Dispose();
+            this.Dispose();
             this.Close();
+            Application.Exit();
         }
 
         private void 이미지지우기ToolStripMenuItem_Click(object sender, EventArgs e)

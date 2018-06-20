@@ -52,6 +52,7 @@
             this.Controls.Add(this.panel);
             this.Name = "Child";
             this.Text = "제목 없음";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Child_FormClosed);
             this.ResumeLayout(false);
 
         }
