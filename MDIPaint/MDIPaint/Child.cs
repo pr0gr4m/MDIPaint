@@ -191,6 +191,8 @@ namespace MDIPaint
                 myLines[nLine++].SetPoint(start, finish, thick, color);
                 start.X = finish.X;
                 start.Y = finish.Y;
+                if (nLine >= 1024)
+                    nLine = 0;
             }
 
             if (line)
@@ -209,11 +211,20 @@ namespace MDIPaint
         private void panel_MouseUp(object sender, MouseEventArgs e)
         {
             if (line)
-                nLine++;
+            {
+                if (++nLine >= 1024)
+                    nLine = 0;
+            }
             if (rect)
-                nRect++;
+            {
+                if (++nRect >= 64)
+                    nRect = 0;
+            }
             if (circle)
-                nCircle++;
+            {
+                if (++nCircle >= 64)
+                    nCircle = 0;
+            }
             start.X = 0;
             start.Y = 0;
             finish.X = 0;

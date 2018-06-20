@@ -264,7 +264,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Parent";
             this.Text = "그림판";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Parent_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Parent_FormClosing);
             this.Load += new System.EventHandler(this.Parent_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
